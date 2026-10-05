@@ -1,0 +1,27 @@
+{
+  "permissions": {
+    "allow": ["Bash(git init *)", "Bash(npm install *)"]
+  },
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "npx prettier --write \"$TOOL_INPUT_file_path\""
+          }
+        ]
+      },
+      {
+        "matcher": "Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "npx prettier --write \"$TOOL_INPUT_file_path\""
+          }
+        ]
+      }
+    ]
+  }
+}
